@@ -223,13 +223,17 @@ class Window extends Component {
     onAddPerdidas = () => {
         let { _item, formModalPerdidas, modalPerdidas } = this.state;
         let _data = {
-            idJaulaGrupo: _item.id,
+            jaulaGrupoID: _item.id,
             fecha: new Date().toISOString(),
             cantidad: formModalPerdidas.perdidas
         }
-        axios.post(`${API.jaulasGrupoMuerte}`, _data)
+        // axios.post(`${API.jaulasGrupoMuerte}`, _data)
+        axios.post(`${"https://deeptilapiaapp.azurewebsites.net/api/JaulaGrupoMuertesRest"}`, _data)
             .then(res => {
                 this.setState({ modalPerdidas: false, }, () => this.onGetPerdidas());
+                // console.warn("Result: ", res.data)
+                formModalPerdidas.perdidas = "";
+                this.setState(formModalPerdidas);
             })
             .catch(err => {
                 alert("Ha ocurrido un error con agregar perdiads");

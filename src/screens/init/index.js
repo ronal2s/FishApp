@@ -166,19 +166,19 @@ class Employees extends Component {
 
     onAlimentarJaula = (id) => {
         let data = {
-            IDJaulaGrupo: id,
-            IDAlimento: 1,
-            Cantidad: 1,
+            jaulaGrupoID: id,
+            // IDAlimento: 1,
+            Cantidad: 2.5,
             Fecha: new Date().toISOString()
         }
-        // axios.post(`${API.jaulasGrupoAlimento}`, data)
-        //     .then(res => {
-        //         // alert("Lala");
-        //         this.getJaulas();
-        //     })
-        //     .catch(err => {
-        //         alert("Ha ocurrido un error");
-        //     })
+        axios.post(`${API.jaulasGrupoAlimento}`, data)
+            .then(res => {
+                // alert("Lala");
+                this.getJaulas();
+            })
+            .catch(err => {
+                alert("Ha ocurrido un error");
+            })
     }
 
     onOpenModal = (name, item) => {
@@ -215,8 +215,8 @@ class Employees extends Component {
         let { data } = this.state;
         data.map((v, i) => {
             if (v.selected) {
-                v.isTrue = true;
-                v.selected = false;
+                // v.isTrue = true;
+                // v.selected = false;
                 // console.warn("x")
                 this.onAlimentarJaula(v.id);
             }
