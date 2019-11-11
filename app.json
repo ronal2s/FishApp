@@ -2,8 +2,8 @@
   "name": "FishApp",
   "displayName":"FishApp",
   "expo": {
-    "name": "fishapp2",
-    "slug": "fishapp2",
+    "name": "FishApp",
+    "slug": "fishapp",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [
